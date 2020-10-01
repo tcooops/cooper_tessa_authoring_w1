@@ -1,8 +1,16 @@
 nav {
     margin: 0;
 
-    li {
+    .nav-item {
         display: inline-block; margin: 0 10px;
+        background-color: blue;
+
+        @include roundCorners (8px)
+
         a {cursor: pointer; text-decoration: none;}
+    }
+
+    :hover {
+        a {color: pink;}
     }
 }

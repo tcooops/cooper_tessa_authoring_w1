@@ -1,0 +1,11 @@
+/* can be mixed in with other sass! great for quick snippits we don't want to keep re-writingz */
+
+@mixin roundCorners($radius) {
+    border-radius: $radius;
+}
+
+@mixin addPadding($values...) {
+    @each $var in $values {
+        padding: #{$var};
+    }
+}
