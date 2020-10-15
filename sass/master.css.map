@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAM0B,wBAAwB;ACNlD,IAAK;EACD,IAAI,EDEI,kCAAkC;ECD1C,SAAS,EDEI,IAAI;ECAjB,gBAAgB,EDHJ,MAAM;ECKlB,MAAM,EAAE,CAAC;EACT,MAAM,EAAE,CAAC",
-"sources": ["modules/_vars.scss","modules/_main.scss"],
-"names": [],
-"file": "master.css"
-}
