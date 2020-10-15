@@ -1,0 +1,11 @@
+.user {
+  display: inline-block;
+  padding: 20px;
+
+  .user-name,
+  .user-nickname,
+  .user-role {
+    margin: 0;
+    padding: 0;
+  }
+}
