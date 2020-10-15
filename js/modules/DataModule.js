@@ -1,3 +1,4 @@
+// note: JSON has everything individually wrapped in quotes
 export default {
    Justin: {
        name: "Justin",
