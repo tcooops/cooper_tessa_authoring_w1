@@ -47,5 +47,3 @@ import Team from "./modules/DataModule.js";
 
 //array based.. first child is 0, second is 1, etc.
 
-
-// make a copy of our template here and then populate the children (text elements) with the static data from the Team object
