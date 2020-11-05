@@ -1,1 +1,3 @@
-# cooper_tessa_authoring_w1
+# Authoring 3
+
+## Learning how to play fetch with AJAX, JSON, and async functions
