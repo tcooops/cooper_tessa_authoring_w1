@@ -1,9 +1,15 @@
 body {
-    font: $main-font;
-    font-size: $main-font-size;
+  font: $main-font;
+  font-size: $main-font-size;
 
-    background-color: $main-bg-color;
+  background-color: $main-bg-color;
 
-    margin: 0;
-    border: 0;
+  margin: 0;
+  border: 0;
+
+  color: #333;
+}
+
+.user-section {
+  background-color: #fee5d6;
 }
