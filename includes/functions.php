@@ -13,4 +13,4 @@
     } // note: no semi-colon needed after the while statement. It is a body with curly braces so no need for a semi-colon. 
 
     //return $result;
-    var_dump(json_encode($result));
+    echo (json_encode($result));
