@@ -1,5 +1,5 @@
 body {
-  font: $main-font;
+  font-family: $main-font;
   font-size: $main-font-size;
 
   background-color: $main-bg-color;
@@ -8,6 +8,10 @@ body {
   border: 0;
 
   color: #333;
+}
+
+main {
+  height: 799px;
 }
 
 .user-section {

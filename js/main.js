@@ -1,7 +1,10 @@
-import { fetchData } from "./modules/DataMiner.js";
+import { fetchData, postData } from "./modules/TheDataMiner.js";
 
 (() => {
 // this receives the data payload from our AJAX request, parses it (turns the returned JSON object back into a plain JavaScript object) and renders the data to our view (the markup in index.html)
+    function popErrorBox(message) {
+        alert("something has gone wrong");
+    }
 
     function handleDataSet(data) {
         let userSection = document.querySelector('.user-section'),
@@ -16,7 +19,7 @@ import { fetchData } from "./modules/DataMiner.js";
             let currentUser = userTemplate.cloneNode(true),
                 currentUserText = currentUser.querySelector('.user').children;
 
-            currentUserText[1].src = './images/${data[user].avatar}.jpg'; // image
+            currentUserText[1].src = `images/${data[user].avatar}`; // image
             currentUserText[2].textContent = data[user].name;
             currentUserText[3].textContent = data[user].role;
             currentUserText[4].textContent = data[user].nickname;
@@ -24,11 +27,9 @@ import { fetchData } from "./modules/DataMiner.js";
             // add this new user to the view
             userSection.appendChild(currentUser);
         }
-
-        console.log(data);
     }
 
     // fetch data then do this with it (function above) then catch errors
-    fetchData('./DataSet.json').then(data => handleDataSet(data)).catch(err => console.log(err));
+fetchData('./includes/functions.php').then(data => handleDataSet(data)).catch(err => console.log(err));
 
 })();
