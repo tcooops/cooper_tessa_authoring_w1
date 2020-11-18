@@ -19,10 +19,12 @@ import { fetchData, postData } from "./modules/TheDataMiner.js";
             let currentUser = userTemplate.cloneNode(true),
                 currentUserText = currentUser.querySelector('.user').children;
 
-            currentUserText[1].src = `images/${data[user].avatar}`; // image
-            currentUserText[2].textContent = data[user].name;
-            currentUserText[3].textContent = data[user].role;
-            currentUserText[4].textContent = data[user].nickname;
+                //NOTE when grabbing elements from a database, they are CASE SeNsItIvE! 
+
+            currentUserText[1].src = `./images/${data[user].Avatar}`; // image
+            currentUserText[2].textContent = data[user].Name;
+            currentUserText[3].textContent = data[user].Role;
+            currentUserText[4].textContent = data[user].Nickname;
 
             // add this new user to the view
             userSection.appendChild(currentUser);
