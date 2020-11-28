@@ -1,8 +1,5 @@
-<?php
-
-// this file accesses our database...
-
-    $db_dsn = array(
+<?php 
+    $db_dsn = array( 
         'host' => 'localhost',
         'dbname' => 'db_profData',
         'charset' => 'utf8'
@@ -13,13 +10,14 @@
     //This is the DB credentials
 
     $db_user = 'root';
-    $db_pass = 'root';
+    $db_pass = 'root'; // windows users leave this blank
 
-    try {
+    try{
         $pdo = new PDO($dsn, $db_user, $db_pass);
-        // var_dump($pdo); // this allows us to see the representation of the connection to ensure it's working
-        // echo "Connected Successfully!";
-    } catch (PDOException $exception) {
+        // var_dump($pdo);
+        // echo (in this case) is almost like console.log
+        // echo "you're in! enjoy the show";
+    } catch (PDOException $exception){
         echo 'Connection Error:'.$exception->getMessage();
         exit();
     }

@@ -1,16 +1,31 @@
 <?php
-    // include the CONNECT.PHP file
-    include("connect.php");
-
-    $query = "SELECT * FROM tbl_profData";  // selects ALL from the table with our Professor Data
-
-    $runQuery = $pdo->query($query);  // this asks for the statement above (select all from prof data) and runs the query. PDO means portable data object.
+    // include the file we just wrote - connect
+     // like a JS import statement
 
     $result = array();
 
-    while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
-        $result[] = $row;
-    } // note: no semi-colon needed after the while statement. It is a body with curly braces so no need for a semi-colon. 
+    function getAllUsers($conn) {
+        $query = "SELECT * FROM tbl_profData";
 
-    //return $result;
-    echo (json_encode($result));
+        $runQuery = $conn->query($query);
+
+        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+
+        //return $result;
+        echo (json_encode($result));
+    }
+
+    function getSingleUser($conn, $id) {
+        $query = "SELECT * FROM tbl_profData WHERE id=" . $id . "";
+
+        $runQuery = $conn->query($query);
+
+        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+
+        //return $result;
+        echo (json_encode($result));
+    }

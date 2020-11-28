@@ -1,27 +1,23 @@
-import { fetchData, postData } from "./modules/TheDataMiner.js";
+// import your packages here
+import { fetchData } from "./modules/TheDataMiner.js";
 
 (() => {
-// this receives the data payload from our AJAX request, parses it (turns the returned JSON object back into a plain JavaScript object) and renders the data to our view (the markup in index.html)
+    // stub * just a place for non-component-specific stuff
+    console.log('loaded');
+    
     function popErrorBox(message) {
-        alert("something has gone wrong");
+        alert("Something has gone horribly, horribly wrong");
     }
 
     function handleDataSet(data) {
         let userSection = document.querySelector('.user-section'),
-            userTemplate = document.querySelector('#user-template').content;  
-            // note: you can't access the template directly, you have to dig in to grab the content
-
-        //debugger;
-
-        // loop through the JavaScript object and for each user, make a copy of the user template we find at the bottom of index.html, populate it with the user's data, and put that fresh copy in the users section in index.html
+            userTemplate = document.querySelector('#user-template').content;
 
         for (let user in data) {
             let currentUser = userTemplate.cloneNode(true),
                 currentUserText = currentUser.querySelector('.user').children;
 
-                //NOTE when grabbing elements from a database, they are CASE SeNsItIvE! 
-
-            currentUserText[1].src = `./images/${data[user].Avatar}`; // image
+            currentUserText[1].src = `images/${data[user].Avatar}`;
             currentUserText[2].textContent = data[user].Name;
             currentUserText[3].textContent = data[user].Role;
             currentUserText[4].textContent = data[user].Nickname;
@@ -31,7 +27,31 @@ import { fetchData, postData } from "./modules/TheDataMiner.js";
         }
     }
 
-    // fetch data then do this with it (function above) then catch errors
-fetchData('./includes/functions.php').then(data => handleDataSet(data)).catch(err => console.log(err));
+    function retrieveProjectInfo() {
+        // test for an ID
+        debugger;
+        console.log(this.id);
 
+        // need to write some lightbox functionality here - pass the data into that function and then show it
+
+        fetchData(`./includes/index.php?id=${this.id}`).then(data => console.log(data)).catch(err => console.log(err));
+    }
+
+    function renderPortfolioThumbnails(thumbs) {
+        let userSection = document.querySelector('.user-section'),
+            userTemplate = document.querySelector('#user-template').content;
+
+        for (let user in thumbs) {
+            let currentUser = userTemplate.cloneNode(true),
+                currentUserText = currentUser.querySelector('.user').children;
+
+            currentUserText[1].src = `images/${thumbs[user].Avatar}`;
+            currentUserText[1].id = thumbs[user].ID;
+            // add this new user to the view
+            currentUser.addEventListener("click", retrieveProjectInfo);
+            userSection.appendChild(currentUser);
+        }
+    }
+        
+    fetchData("./includes/index.php").then(data => renderPortfolioThumbnails(data)).catch(err => console.log(err));
 })();
